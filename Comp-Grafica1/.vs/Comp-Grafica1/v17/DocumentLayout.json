@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{213AE46E-2D59-4080-91EE-1443942DB5AE}|Comp-Grafica1\\Comp-Grafica1.csproj|c:\\users\\domenica\\source\\repos\\comp-grafica1\\comp-grafica1\\homepadre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{213AE46E-2D59-4080-91EE-1443942DB5AE}|Comp-Grafica1\\Comp-Grafica1.csproj|solutionrelative:comp-grafica1\\homepadre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{213AE46E-2D59-4080-91EE-1443942DB5AE}|Comp-Grafica1\\Comp-Grafica1.csproj|C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\comp-grafica1\\homepadre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{213AE46E-2D59-4080-91EE-1443942DB5AE}|Comp-Grafica1\\Comp-Grafica1.csproj|solutionrelative:comp-grafica1\\homepadre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Homepadre.cs",
+              "DocumentMoniker": "C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\Comp-Grafica1\\Homepadre.cs",
+              "RelativeDocumentMoniker": "Comp-Grafica1\\Homepadre.cs",
+              "ToolTip": "C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\Comp-Grafica1\\Homepadre.cs",
+              "RelativeToolTip": "Comp-Grafica1\\Homepadre.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAIAywCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:34:47.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Homepadre.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\Comp-Grafica1\\Homepadre.cs",
+              "RelativeDocumentMoniker": "Comp-Grafica1\\Homepadre.cs",
+              "ToolTip": "C:\\Users\\domenica\\source\\repos\\Comp-Grafica1\\Comp-Grafica1\\Homepadre.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Comp-Grafica1\\Homepadre.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:33:04.226Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
