@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Watches</title>
+</head>
+<body>
+
+<h1>Lista de Smart Watches</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Model</th>
+        </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+
+<script>
+async function cargarDatos() {
+    const res = await fetch("http://localhost:3000/smartwatches");
+    const data = await res.json();
+
+    const tbody = document.getElementById("tbody");
+    tbody.innerHTML = "";
+
+    data.forEach(sw => {
+        tbody.innerHTML += `
+            <tr>
+                <td>${sw.id}</td>
+                <td>${sw.name}</td>
+                <td>${sw.description}</td>
+                <td>${sw.price}</td>
+                <td>${sw.stock}</td>
+                <td>${sw.model}</td>
+            </tr>
+        `;
+    });
+}
+
+cargarDatos();
+</script>
+
+</body>
+</html>
