@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\domenica\\source\\repos\\AlgoritmoDeRelleno\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE04EB90-7177-4E44-9F8C-DB8D8F4C68D7}|AlgoritmoDeRelleno\\AlgoritmosU2.csproj|c:\\users\\domenica\\source\\repos\\algoritmoderelleno\\algoritmoderelleno\\frmalglineas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE04EB90-7177-4E44-9F8C-DB8D8F4C68D7}|AlgoritmoDeRelleno\\AlgoritmosU2.csproj|solutionrelative:algoritmoderelleno\\frmalglineas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE04EB90-7177-4E44-9F8C-DB8D8F4C68D7}|AlgoritmoDeRelleno\\AlgoritmosU2.csproj|c:\\users\\domenica\\source\\repos\\algoritmoderelleno\\algoritmoderelleno\\frmalglineas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DE04EB90-7177-4E44-9F8C-DB8D8F4C68D7}|AlgoritmoDeRelleno\\AlgoritmosU2.csproj|solutionrelative:algoritmoderelleno\\frmalglineas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAlgLineas.cs",
+              "DocumentMoniker": "C:\\Users\\domenica\\source\\repos\\AlgoritmoDeRelleno\\AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "RelativeDocumentMoniker": "AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "ToolTip": "C:\\Users\\domenica\\source\\repos\\AlgoritmoDeRelleno\\AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "RelativeToolTip": "AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAwFoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T00:39:29.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmAlgLineas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\domenica\\source\\repos\\AlgoritmoDeRelleno\\AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "RelativeDocumentMoniker": "AlgoritmoDeRelleno\\frmAlgLineas.cs",
+              "ToolTip": "C:\\Users\\domenica\\source\\repos\\AlgoritmoDeRelleno\\AlgoritmoDeRelleno\\frmAlgLineas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "AlgoritmoDeRelleno\\frmAlgLineas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T00:38:38.831Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
