@@ -53,4 +53,21 @@ router.delete('/:serialNumber', async (req, res) => {
     }
 });
 
+// Physical DELETE by serialNumber using JSON body { id }
+router.delete('/', async (req, res) => {
+    const serial = Number(req.body.id);
+    if (Number.isNaN(serial)) {
+        return res.status(400).json({ message: 'Invalid id in request body' });
+    }
+    try {
+        const deleted = await PictureFrame.findOneAndDelete({ serialNumber: serial });
+        if (!deleted) {
+            return res.status(404).json({ message: 'Picture frame not found' });
+        }
+        res.json({ message: 'Picture frame permanently deleted', pictureFrame: deleted });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
