@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Viewer</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFF5F7;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        #root {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Customer Service (Model) -->
+    <script type="text/babel">
+        const API_BASE_URL = 'http://localhost:3018/api';
+
+        class CustomerService {
+            static async getAllCustomers() {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/customers/`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error al obtener clientes:', error);
+                    throw error;
+                }
+            }
+        }
+    </script>
+
+    <!-- Customer Table Component (View) -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function CustomerTable() {
+            const [customers, setCustomers] = useState([]);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+
+            useEffect(() => {
+                loadCustomers();
+            }, []);
+
+            const loadCustomers = async () => {
+                try {
+                    setLoading(true);
+                    setError(null);
+                    const response = await CustomerService.getAllCustomers();
+                    if (response.success) {
+                        setCustomers(response.data);
+                    } else {
+                        setError('Error al cargar los datos');
+                    }
+                } catch (err) {
+                    setError('No se pudo conectar con el servidor. Asegúrate de que el backend esté ejecutándose en el puerto 3018.');
+                    console.error(err);
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            if (loading) {
+                return (
+                    <div style={styles.container}>
+                        <div style={styles.loading}>
+                            <div className="spinner"></div>
+                            <p style={{color: '#D4A5A5'}}>Cargando clientes...</p>
+                        </div>
+                    </div>
+                );
+            }
+
+            if (error) {
+                return (
+                    <div style={styles.container}>
+                        <div style={styles.error}>
+                            <h3>⚠️ Error</h3>
+                            <p>{error}</p>
+                            <button style={styles.retryButton} onClick={loadCustomers}>
+                                Reintentar
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div style={styles.container}>
+                    <div style={styles.header}>
+                        <h1 style={styles.title}>✿ Customers ✿</h1>
+                    </div>
+
+                    <div style={styles.tableContainer}>
+                        <table style={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th style={styles.th}>ID</th>
+                                    <th style={styles.th}>Full Name</th>
+                                    <th style={styles.th}>Email</th>
+                                    <th style={styles.th}>Type</th>
+                                    <th style={styles.th}>Discount (%)</th>
+                                    <th style={styles.th}>Total Sales ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {customers.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="6" style={styles.noData}>
+                                            Customers not found.
+                                        </td>
+                                    </tr>
+                                ) : (
+                                    customers.map((customer, index) => (
+                                        <tr key={customer._id} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
+                                            <td style={styles.td}>{customer.id}</td>
+                                            <td style={styles.td}>{customer.fullName}</td>
+                                            <td style={styles.td}>{customer.email}</td>
+                                            <td style={styles.td}>{customer.type}</td>
+                                            <td style={styles.td}>{customer.discount}%</td>
+                                            <td style={styles.td}>${customer.totalSale}</td>
+                                        </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            );
+        }
+
+        const styles = {
+            container: {
+                maxWidth: '900px',
+                margin: '0 auto',
+                fontFamily: 'Segoe UI, sans-serif',
+            },
+            header: {
+                textAlign: 'center',
+                marginBottom: '30px',
+                padding: '20px',
+            },
+            title: {
+                color: '#D4A5A5',
+                fontSize: '48px',
+                fontWeight: '600',
+                letterSpacing: '2px',
+            },
+            tableContainer: {
+                backgroundColor: '#FFFFFF',
+                borderRadius: '8px',
+                padding: '20px',
+                boxShadow: '0 2px 8px rgba(212, 165, 165, 0.1)',
+                border: '2px solid #F5E6D3',
+            },
+            table: {
+                width: '100%',
+                borderCollapse: 'collapse',
+                border: '1px solid #F5E6D3',
+            },
+            th: {
+                padding: '15px',
+                textAlign: 'left',
+                backgroundColor: '#FFB6C1',
+                color: '#FFFFFF',
+                fontWeight: '600',
+                fontSize: '14px',
+                border: '1px solid #F5E6D3',
+            },
+            td: {
+                padding: '12px 15px',
+                fontSize: '14px',
+                color: '#5A5A5A',
+                border: '1px solid #F5E6D3',
+            },
+            evenRow: {
+                backgroundColor: '#FFFFFF',
+            },
+            oddRow: {
+                backgroundColor: '#FFFFFF',
+            },
+            loading: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: '400px',
+                fontSize: '16px',
+            },
+            error: {
+                backgroundColor: '#FFFFFF',
+                padding: '40px',
+                borderRadius: '8px',
+                textAlign: 'center',
+                border: '2px solid #FFB6C1',
+                color: '#D4A5A5',
+            },
+            retryButton: {
+                marginTop: '20px',
+                padding: '12px 30px',
+                backgroundColor: '#FFB6C1',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: '600',
+            },
+            noData: {
+                padding: '40px',
+                textAlign: 'center',
+                color: '#D4A5A5',
+                fontSize: '16px',
+                border: '1px solid #F5E6D3',
+            },
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<CustomerTable />);
+    </script>
+
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #F5E6D3;
+            border-top: 4px solid #FFB6C1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+    </style>
+</body>
+</html>

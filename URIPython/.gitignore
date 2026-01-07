@@ -1,0 +1,36 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Variables de entorno - MUY IMPORTANTE
+.env
+.env.local
+
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.bak
+*.tmp
